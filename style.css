@@ -1,0 +1,167 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #213547;
+  --hover-color: #747bff;
+  --secondary-color: #666;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #242424;
+    --text-color: rgba(255, 255, 255, 0.87);
+    --hover-color: #646cff;
+    --secondary-color: #888;
+    color-scheme: dark;
+  }
+}
+
+[data-theme="dark"] {
+  --bg-color: #242424;
+  --text-color: rgba(255, 255, 255, 0.87);
+  --hover-color: #646cff;
+  --secondary-color: #888;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --text-color: #213547;
+  --hover-color: #747bff;
+  --secondary-color: #666;
+  color-scheme: light;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile {
+  text-align: center;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid var(--text-color);
+  transition: border-color 0.3s ease;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+.bio {
+  max-width: 600px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: var(--text-color);
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--hover-color);
+  transform: translateY(-2px);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+#theme-switch {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+#theme-switch:hover {
+  color: var(--hover-color);
+}
+
+.sun {
+  display: none;
+}
+
+[data-theme="dark"] .moon {
+  display: none;
+}
+
+[data-theme="dark"] .sun {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .bio {
+    font-size: 0.95rem;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+}
